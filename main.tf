@@ -7,9 +7,9 @@ module "subnets" {
   subnets = each.value
   vpc_id = aws_vpc.main.id
 }
-module "igw" {
-  source = "./igw"
-  for_each = var.subnets
-  subnets = each.value
-  vpc_id = aws_vpc.main.id
-}
+#module "igw" {
+#  source = "./igw"
+#  for_each = var.subnets
+#  subnets = each.value
+#  vpc_id = aws_vpc.main.id
+#}
