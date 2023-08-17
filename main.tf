@@ -7,3 +7,7 @@ module "subnets" {
   subnets = each.value
   vpc_id = aws_vpc.main.id
 }
+module "igw" {
+  source = "./igw"
+  vpc_id = aws_vpc.main.id
+}
