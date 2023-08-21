@@ -57,7 +57,11 @@ resource "aws-route" "peer" {
   vpc_peering_connection_id = aws_vpc_peering_connection.peering.id
 }
 resource "aws-route" "default-vpc-peer-entry" {
-  route_table_id            = var.default_vpc_route_table
-  destination_cidr_block    = var.default_vpc_cider
+  route_table_id            = var.default_vpc_route_table_id
+  destination_cidr_block    = var.cidr
   vpc_peering_connection_id = aws_vpc_peering_connection.peering.id
+}
+resource "aws_instance" "main" {
+  instance_type = "t2.micro"
+  image_id     = "ami-03265a0778a880afb"
 }
